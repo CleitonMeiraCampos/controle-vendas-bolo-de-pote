@@ -1,0 +1,38 @@
+.container-home{
+    display: flex;
+    font-family: tahoma;
+}
+.container-main-home{
+    display: flex; 
+}
+
+.container-home aside{
+    min-width: 20%;
+    color: #ffffff;
+    background-color: #0b4d97;
+    height: 100vh;
+}
+
+.container-home aside .container-text-header{
+    padding: 70px 30px;
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+} 
+
+
+.container-home aside img{
+    width: 45px;
+}
+.container-img-pages{
+    padding: 20px;
+}
+.img-pages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-pages span{
+    cursor: pointer;
+    padding: 0 20px;
+    text-wrap: nowrap;
+}
