@@ -26,7 +26,7 @@ public class VendaController {
 	}
 	
 	@PostMapping
-	public VendaDTO sell(@RequestBody VendaDTO venda) {
+	public VendaDTO sell(@RequestBody Venda venda) {
 		return vendaService.sell(venda);
 	}
 	

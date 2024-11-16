@@ -1,13 +1,23 @@
 package com.gestao.controle_estoque.dto;
 
+import com.gestao.controle_estoque.entities.Cliente;
+
 public class ClienteDTO {
     private Long id;
-    private String nome; // Outros campos que você quiser expor, como nome, etc.
+    private String nome; 
 
-    // Construtores, getters e setters
+    public ClienteDTO() {
+    	
+    }
+    
     public ClienteDTO(Long id, String nome) {
         this.id = id;
         this.nome = nome;
+    }
+    
+    public ClienteDTO(Cliente cliente) {
+    	this.id = cliente.getId();
+    	this.nome = cliente.getName();
     }
 
     public Long getId() {

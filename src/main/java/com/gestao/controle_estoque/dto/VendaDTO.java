@@ -16,8 +16,8 @@ public class VendaDTO {
     }
     
     public VendaDTO(Venda venda) {
-    	vendedor.setId(venda.getVendedor().getId());
-    	cliente.setId(venda.getCliente().getId());
+    	vendedor = new VendedorDTO(venda.getVendedor());
+    	cliente = new ClienteDTO(venda.getCliente());
     	data = venda.getData();
     	valorVenda = venda.getValorVenda();
     }
