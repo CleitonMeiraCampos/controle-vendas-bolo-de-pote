@@ -17,10 +17,18 @@ public class Vendedor {
 	
 	private String password;
 	
+	public Vendedor() {
+		
+	}
+	
+	public Vendedor(String name, String password) {
+		this.name = name;
+		this.password = password;
+	}
+	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}

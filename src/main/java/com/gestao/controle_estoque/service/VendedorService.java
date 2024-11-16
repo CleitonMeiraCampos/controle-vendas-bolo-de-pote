@@ -10,39 +10,31 @@ import com.gestao.controle_estoque.entities.Vendedor;
 import com.gestao.controle_estoque.repository.VendedorRepository;
 
 @Service
-public class VendedorService {
-	
+public class VendedorService{
 	@Autowired
 	VendedorRepository vendedorRepository;
 	
-	public List<Vendedor> listarVendedores(){
+	public List<Vendedor> listarVendedores() {
 		return vendedorRepository.findAll();
 	}
-	
+
 	public Vendedor cadastrarVendedor(Vendedor vendedor) {
-		return vendedorRepository.save(vendedor);
-	}
-	
-	public List<Vendedor> deletarVendedor(Long idVendedor){
-		vendedorRepository.deleteById(idVendedor);
-		return listarVendedores();
-	}
-	public Vendedor atualizarVendedor(Long id, Vendedor vendedor) {
-		Vendedor vendedorExist = vendedorRepository.findById(id).orElseThrow(()-> new RuntimeException("Vendedor não Encontrado"));
-		vendedorExist.setName(vendedor.getName());
-		vendedorExist.setPassword(vendedor.getPassword());
-		
-		return vendedorRepository.save(vendedorExist);
-	}
-	
-	public ResponseEntity<Vendedor> login(Vendedor vendedorRequest){
-		Vendedor vendedor = vendedorRepository.findByNameAndPassword(vendedorRequest.getName(), vendedorRequest.getPassword());
-		if(vendedor != null){
-			return ResponseEntity.ok(vendedor);
-		}else{
-			return ResponseEntity.status(404).build();
-		}
+		return vendedorRepository.save(vendedor); 
 	}
 
+	public ResponseEntity<Vendedor> login(Vendedor vendedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Vendedor atualizarVendedor(Long idVendedor, Vendedor vendedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Vendedor> deletarVendedor(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

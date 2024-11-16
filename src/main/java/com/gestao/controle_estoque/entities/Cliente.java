@@ -21,8 +21,11 @@ public class Cliente {
     	
     }
     
+
+    
     public Cliente(String name) {
     	this.name = name;
+    	this.valueToPay = 0.0;
     }
     
     public Cliente(String name, double valueToPay) {

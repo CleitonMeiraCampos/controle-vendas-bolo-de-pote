@@ -2,6 +2,8 @@ package com.gestao.controle_estoque.entities;
 
 import java.time.LocalDate;
 
+import com.gestao.controle_estoque.dto.VendaDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +27,29 @@ public class Venda {
     
 
 	private LocalDate data;
-    private Double valor;
+    private Double valorVenda;
+    
+    public Venda() {
+    	
+    }
+    
+    public Venda(Cliente cliente, Vendedor vendedor, Double valor, LocalDate data) {
+    	this.cliente = cliente;
+    	this.vendedor = vendedor;
+    	this.valorVenda = valor;
+    	this.data = data;
+    }
+    
+    public Venda(VendaDTO vendaDTO) {
+    	this.cliente.setId(vendaDTO.getIdCliente());
+    	this.vendedor.setId(vendaDTO.getIdVendedor());
+    	this.valorVenda = vendaDTO.getValorVenda();
+    	this.data = vendaDTO.getData();
+    }
+    
+    public Long getId() {
+    	return id; 
+    }
 
     public Vendedor getVendedor() {
 		return vendedor;
@@ -45,11 +69,11 @@ public class Venda {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
-	public Double getValor() {
-		return valor;
+	public Double getValorVenda() {
+		return valorVenda;
 	}
-	public void setValor(Double valor) {
-		this.valor = valor;
+	public void setValorVenda(Double valor) {
+		this.valorVenda = valor;
 	}
 
 }

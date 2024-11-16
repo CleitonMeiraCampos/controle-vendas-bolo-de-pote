@@ -7,5 +7,4 @@ import com.gestao.controle_estoque.entities.Venda;
 
 @Repository
 public interface VendaRepository extends JpaRepository<Venda, Long>{
-
 }
