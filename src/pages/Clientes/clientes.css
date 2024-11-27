@@ -63,19 +63,38 @@
     padding: 10px;
     cursor: pointer;
 }
-button.delete{
-    margin: 0 5px;
+.delete{
     background-color: #ff0000;
 }
-button.delete:hover{
+.delete:hover{
     background-color: #d42525;
 }
-button.edit{
+.edit{
     background-color: #ff5100;
 }
-button.edit:hover{
+.edit:hover{
     background-color: #dd5b1e;
 }
+
+.pay{
+    background-color: springgreen;
+}
+.pay:hover{
+    background-color: rgb(7, 192, 99);
+}
+
+.pay, .edit, .delete{
+    width: calc(100% / 3);
+    height: 150px;
+    margin: 10px;
+}
+
+.options{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+}
+
 
 .loading-container{
     text-align: center;

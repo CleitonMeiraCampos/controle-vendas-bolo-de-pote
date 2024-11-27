@@ -1,0 +1,17 @@
+.container-venda{
+    width: 100%;
+    padding: 10px;
+}
+
+.venda{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: flex;
+    background-color: rgb(107, 161, 255);
+
+    p{
+        padding: 8px;
+    }
+}

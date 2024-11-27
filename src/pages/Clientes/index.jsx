@@ -91,16 +91,16 @@ function ClientePage() {
                           </div>
                       ):
                       (<div className="container-cliente">
+                                  <div className='options'>
+                                        <div className='edit'>Editar</div>
+                                        <div className='delete'>Delete</div>
+                                        <div className='pay'>Pagar</div>
+                                  </div>
                                   {clientes.map(cliente => (
                                       <div key={cliente.id} className='cliente'>
                                           <div className='cliente-inside'>
                                               <p><strong>Nome: </strong> {cliente.name}</p>
                                               <p><strong>Saldo Devedor: </strong> {cliente.valueToPay}$</p>
-                                          </div>
-                                          <div>
-                                              <button className='edit'>Editar</button>
-                                              <button className='delete'>Deletar</button>
-                                              <button className='pay'>Pagar</button>
                                           </div>
                                       </div>
                                   ))}
