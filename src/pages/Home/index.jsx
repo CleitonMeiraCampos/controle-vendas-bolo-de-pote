@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import imgClientes from '../../assets/users-avatar.png';
 import ClientePage from '../Clientes/index.jsx';
+import AdicionarCliente from '../Clientes/adicionar/'
 import Venda from '../Vendas/index.jsx';
 import './home.css';
 
@@ -20,20 +21,36 @@ function Home() {
           <div className='container-text-header'>
             <h2>Controle de Vendas</h2>
           </div>
-          <div className='container-img-pages'>
-            <div className="img-pages">
+          <div className='container-option-pages'>
+            <div className="option-pages">
+              <div className='category-page'>
               <img src={imgClientes} alt="Clientes" />
               <span onClick={() => changePage('clientes')}>Clientes</span>
+              </div>
+              <ul className='sub-category-page'>
+                <li>Listar Clientes</li>
+                <li onClick={() => changePage('adicionarCliente')}>Adicionar Cliente</li>
+                <li>Alterar Cliente</li>
+                <li>Remover Cliente</li>
+              </ul>
             </div>
-            <div className="img-pages">
-              <img src={imgClientes} alt="Vendas" />
-              <span onClick={() => changePage('vendas')}>Vendas</span>
+            <div className="option-pages">
+              <div className='category-page'>
+                <img src={imgClientes} alt="Vendas" />
+                <span onClick={() => changePage('vendas')}>Vendas</span>
+              </div>
+              <ul className='sub-category-page'>
+                <li>Listar Vendas</li>
+                <li>Adicionar Vendas</li>
+                <li>Alterar Vendas</li>
+                <li>Remove Vendas</li>
+              </ul>
             </div>
             {/* Adicione mais opções aqui no futuro, como "Relatórios", "Configurações", etc */}
           </div>
         </aside>
       </section>
-      { currentPage === 'clientes' ? <ClientePage /> : currentPage === 'vendas' ? <Venda /> : null}
+      { currentPage === 'clientes' ? <ClientePage /> : currentPage === 'vendas' ? <Venda /> : currentPage === 'adicionarCliente'? <AdicionarCliente /> : null}
     </div>
   );
 }
