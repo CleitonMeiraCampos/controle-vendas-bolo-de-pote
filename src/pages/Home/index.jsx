@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import imgClientes from '../../assets/users-avatar.png';
 import ClientePage from '../Clientes/index.jsx';
-import AdicionarCliente from '../Clientes/adicionar/'
+import Adicionar from '../../components/adicionar/'
 import Venda from '../Vendas/index.jsx';
 import './home.css';
 
 function Home() {
   // Usando o useState com um índice ou string para definir a página ativa
-  const [currentPage, setCurrentPage] = useState('clientes'); // 'clientes' ou 'vendas'
+  const [currentPage, setCurrentPage] = useState('clientes');
+  const [typePage, setTypePage] = useState('');
 
   // Função para alterar a página
   const changePage = (page) => {
@@ -25,11 +26,11 @@ function Home() {
             <div className="option-pages">
               <div className='category-page'>
               <img src={imgClientes} alt="Clientes" />
-              <span onClick={() => changePage('clientes')}>Clientes</span>
+              <span>Clientes</span>
               </div>
               <ul className='sub-category-page'>
-                <li>Listar Clientes</li>
-                <li onClick={() => changePage('adicionarCliente')}>Adicionar Cliente</li>
+                <li onClick={() => changePage('clientes')}>Listar Clientes</li>
+                <li onClick={() => {setTypePage('cliente');changePage('adicionar');}}>Adicionar Cliente</li>
                 <li>Alterar Cliente</li>
                 <li>Remover Cliente</li>
               </ul>
@@ -37,11 +38,11 @@ function Home() {
             <div className="option-pages">
               <div className='category-page'>
                 <img src={imgClientes} alt="Vendas" />
-                <span onClick={() => changePage('vendas')}>Vendas</span>
+                <span>Vendas</span>
               </div>
               <ul className='sub-category-page'>
-                <li>Listar Vendas</li>
-                <li>Adicionar Vendas</li>
+                <li onClick={() => changePage('vendas')}>Listar Vendas</li>
+                <li onClick={() => {setTypePage('venda');changePage('adicionar');}}>Adicionar Vendas</li>
                 <li>Alterar Vendas</li>
                 <li>Remove Vendas</li>
               </ul>
@@ -50,7 +51,7 @@ function Home() {
           </div>
         </aside>
       </section>
-      { currentPage === 'clientes' ? <ClientePage /> : currentPage === 'vendas' ? <Venda /> : currentPage === 'adicionarCliente'? <AdicionarCliente /> : null}
+      { currentPage === 'clientes' ? <ClientePage /> : currentPage === 'vendas' ? <Venda /> : currentPage === 'adicionar'? <Adicionar type={typePage}/> : null}
     </div>
   );
 }
