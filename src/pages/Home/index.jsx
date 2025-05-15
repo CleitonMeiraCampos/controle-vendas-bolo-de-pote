@@ -9,6 +9,7 @@ function Home() {
   // Usando o useState com um índice ou string para definir a página ativa
   const [currentPage, setCurrentPage] = useState('clientes');
   const [typePage, setTypePage] = useState('');
+  const [isSubCategoryVisible, setIsSubCategoryVisible] = useState(false)
 
   // Função para alterar a página
   const changePage = (page) => {
@@ -26,14 +27,16 @@ function Home() {
             <div className="option-pages">
               <div className='category-page'>
               <img src={imgClientes} alt="Clientes" />
-              <span>Clientes</span>
+              <span onClick={()=>{setIsSubCategoryVisible(!isSubCategoryVisible)}}>Clientes</span>
               </div>
-              <ul className='sub-category-page'>
+              {isSubCategoryVisible ? (
+                <ul className='sub-category-page'>
                 <li onClick={() => changePage('clientes')}>Listar Clientes</li>
-                <li onClick={() => {setTypePage('cliente');changePage('adicionar');}}>Adicionar Cliente</li>
+                <li onClick={() => {setTypePage('cliente');changePage('adicionar');}}>Novo Cliente</li>
                 <li>Alterar Cliente</li>
                 <li>Remover Cliente</li>
               </ul>
+              ): null}
             </div>
             <div className="option-pages">
               <div className='category-page'>

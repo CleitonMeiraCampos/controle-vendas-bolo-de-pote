@@ -7,7 +7,6 @@ function ClientePage() {
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState(''); // Adiciona o estado para o termo de busca
-
   // Função para buscar todos os clientes
   function findAllClientes() {
 

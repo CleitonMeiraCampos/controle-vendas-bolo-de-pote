@@ -1,24 +1,60 @@
-.container-adicionar-cliente{
+.container-adicionar-cliente, .container-venda-adicionar{
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 50px 0;
-    margin: 50px 280px;;
-    background-color: aquamarine;
+    padding: 45px 20px;
+    margin: 50px 280px;
+    box-shadow: 2px 2px 5px;
+    border-radius: 20px;
 }
 
-.container-adicionar-cliente label {
+.container-venda-adicionar label {
+    text-align: center;
+    padding: 5px;
+}
+
+.container-adicionar-cliente label{
     text-align: center;
     padding: 10px;
 }
 
-.container-adicionar-cliente input[type="text"], button{
+.container-adicionar-cliente input[type="text"], .container-venda-adicionar input[type="text"],button{
     min-width: 50%;
     text-align: center;
     width: 550px;
     margin:0 auto;
-    padding: 5px;
+    padding: 8px;
+    border: 1px solid #28232395;
+    border-radius: 5px;
 }
+
+.container-adicionar-cliente input[type="text"]:focus, .container-venda-adicionar input[type="text"]:focus{
+    outline: none;
+}
+
 button{
-    margin-top: 100px
+    padding: 10px;
+    background-color: rgba(110, 253, 153, 0.863);
+    margin-top: 225px;
+    border: 0.5px solid #9f8f8f;
 }
+
+button:hover{
+    background-color: rgba(55, 246, 113, 0.863);
+}
+
+/*Sobreescrevendo o nome do cliente para essa pagina*/
+.container-venda-adicionar #cliente{
+    background-color: initial;
+    color: initial;
+    text-align: center;
+    padding: 10px;
+}
+
+.container-venda-adicionar #vendedor, .container-venda-adicionar #produto{
+    text-align: center;
+    padding: 10px;
+}
+
+
+
