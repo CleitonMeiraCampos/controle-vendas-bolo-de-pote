@@ -24,7 +24,7 @@ public class VendaService {
 	
 	public List<Venda> findAllSell() {
 		return vendaRepository.findAll();
-	}
+	}	
 
 	public VendaDTO sell(Venda venda) {
 		
@@ -38,5 +38,16 @@ public class VendaService {
 		return vendaDTO;
 		
 	}
+	
+	public Boolean deleteSell(Long id) {
+		try {
+			vendaRepository.deleteById(id);
+		return true;
+		}catch (Exception e) {
+			System.out.println("Erro ao deletar" + e);
+			return false;
+		}
+	}
+	
 
 }

@@ -21,6 +21,8 @@ public class Vendedor {
 		
 	}
 	
+	
+	
 	public Vendedor(String name, String password) {
 		this.name = name;
 		this.password = password;
