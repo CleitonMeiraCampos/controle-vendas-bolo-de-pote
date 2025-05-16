@@ -3,13 +3,15 @@ import imgClientes from '../../assets/users-avatar.png';
 import ClientePage from '../Clientes/index.jsx';
 import Adicionar from '../../components/adicionar/'
 import Venda from '../Vendas/index.jsx';
+import seta from '../../assets/down-arrow.png'
 import './home.css';
 
 function Home() {
   // Usando o useState com um índice ou string para definir a página ativa
   const [currentPage, setCurrentPage] = useState('clientes');
   const [typePage, setTypePage] = useState('');
-  const [isSubCategoryVisible, setIsSubCategoryVisible] = useState(false)
+  const [isSubCategoryVisibleClientes, setIsSubCategoryVisibleClientes] = useState(false)
+  const [IsSubCategoryVisibleVendas, setIsSubCategoryVisibleVendas] = useState(false)
 
   // Função para alterar a página
   const changePage = (page) => {
@@ -27,9 +29,9 @@ function Home() {
             <div className="option-pages">
               <div className='category-page'>
               <img src={imgClientes} alt="Clientes" />
-              <span onClick={()=>{setIsSubCategoryVisible(!isSubCategoryVisible)}}>Clientes</span>
+              <span onClick={()=>{setIsSubCategoryVisibleClientes(!isSubCategoryVisibleClientes)}}>Clientes {!isSubCategoryVisibleClientes ? (<img className='seta-show' src={seta}/>): (<img className='seta-noshow' src={seta}/>)}</span>
               </div>
-              {isSubCategoryVisible ? (
+              {isSubCategoryVisibleClientes ? (
                 <ul className='sub-category-page'>
                 <li onClick={() => changePage('clientes')}>Listar Clientes</li>
                 <li onClick={() => {setTypePage('cliente');changePage('adicionar');}}>Novo Cliente</li>
@@ -41,14 +43,16 @@ function Home() {
             <div className="option-pages">
               <div className='category-page'>
                 <img src={imgClientes} alt="Vendas" />
-                <span>Vendas</span>
+                <span onClick={()=>{setIsSubCategoryVisibleVendas(!IsSubCategoryVisibleVendas)}}>Vendas {!IsSubCategoryVisibleVendas ? (<img className='seta-show' src={seta}/>) : (<img className='seta-noshow' src={seta}/>)}</span>
               </div>
-              <ul className='sub-category-page'>
+              {IsSubCategoryVisibleVendas ? (
+                <ul className='sub-category-page'>
                 <li onClick={() => changePage('vendas')}>Listar Vendas</li>
                 <li onClick={() => {setTypePage('venda');changePage('adicionar');}}>Adicionar Vendas</li>
                 <li>Alterar Vendas</li>
                 <li>Remove Vendas</li>
               </ul>
+              ): null}
             </div>
             {/* Adicione mais opções aqui no futuro, como "Relatórios", "Configurações", etc */}
           </div>
