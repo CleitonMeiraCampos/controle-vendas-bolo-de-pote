@@ -1,58 +1,74 @@
-import imgSearch from '../../assets/search.png'
-import { useState } from 'react'
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 
+/* Alterar Cliente */
+function Alterar(props ){
+   const type = props.type;
+   const [clientes, setClientes] = useState([])
 
-function AlterarClientes(){
-    
-    
-    const [clientes, setClientes] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('')
+   fetch('http://localhost:8080/cliente', {
+    method: 'GET'
+  })
+  .then(res => res.json())
+  .then(data => {
+    setClientes(data); // Inicializa clientes com todos os dados
+  })
+  .catch(err => console.error("Erro ao buscar clientes:", err));
 
-
-    function findByName(searchTerm){ 
-        fetch(`http://localhost:8080/cliente/by-name?name=${searchTerm}`, {
-        method: 'GET'
-    }).then(res => res.json())
-    .then(data => {
-        setClientes(data);
-    }
-    )
-    }
-
+  if(type == 'cliente'){
     return (
-        <div className="container-alterar">
-            <div className='search'>
-                      <input
-                          id='pesquisa'
-                          type="search"
-                          onChange={(e) => {setSearchTerm(e.target.value)}}
-                          onKeyDown={(e) => {
-                              if(e.key == 'Enter'){
-                                  findByName(searchTerm)
-                              }
-                          } }
-                      />
-                      <img
-                          src={imgSearch}
-                          alt="icon-pesquisa"
-                          onClick={() => findByName(searchTerm)} // Usa o valor do estado na função de busca
-                      />
-                  </div>
-                  <div className='clientes-localizados'>
-                    {
-                        clientes.map(cliente => {
-                            <div key={cliente.id} className='cliente'>
-                                <div className='cliente-inside'>
-                                    <p><strong>Nome: </strong> {cliente.name}</p>
-                                    <p><strong>Saldo Devedor: </strong> {cliente.valueToPay}$</p>
-                                </div>
-                            </div>
-                        })
-                    }
-                  </div>
-                  
-        </div>
+      <div>
+        <h3 style={{textAlign: 'center'}}>Selecione o cliente que deseja alterar</h3>
+        <label htmlFor="cliente">Cliente</label>
+        <select id="cliente">
+        {clientes.map(cliente => (
+            <option value={cliente.id} key={cliente.id}>{cliente.name}</option>
+          ))}
+        </select>
+      </div>
     )
+  }
+
+   return(
+
+    <div className="container-venda-adicionar">
+        <label htmlFor="vendedor">Vendedor</label>
+        <select
+          id="vendedor"
+          //onChange={(e) => setVendedorParam(e.target.value)}
+        >
+          <option selected disabled >Selecione um Vendedor</option>
+          {/* {vendedores.map(vendedor => (
+            <option value={vendedor.id} key={vendedor.id}> {vendedor.name}</option>
+          ))} */}
+        </select>
+        <label htmlFor="cliente">Cliente</label>
+        <select
+          id="cliente"
+          //onChange={(e) => setClienteParam(e.target.value)}
+        >
+          <option selected disabled >Selecione um Cliente</option>
+        </select>
+        <label htmlFor="valueVenda">Produto</label>
+        <select
+          id="produto"
+          //onChange={(e) => setProdutoParam(e.target.value)}
+        >
+          <option selected disabled >Selecione um Produto</option>
+        </select>
+        <button onClick={() => {
+          //saveSell(vendedorParam, clienteParam, produtoParam);
+        }}>Salvar</button>
+      </div>
+   )
+
+  
+   
 }
 
-export default AlterarClientes;
+Alterar.propTypes = {
+    type: PropTypes.string.isRequired, // 'type' deve ser uma string e é obrigatório
+  };
+
+
+export default Alterar;

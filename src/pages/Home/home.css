@@ -60,8 +60,7 @@
 }
 
 .seta-noshow, .seta-show{
-    width: 5px;
-    height: 35px;
+    max-width: 28px;
 }
 .seta-show{
     transform: rotate(-90deg);

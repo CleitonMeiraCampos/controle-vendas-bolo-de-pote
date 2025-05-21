@@ -5,6 +5,7 @@ import Adicionar from '../../components/adicionar/'
 import Venda from '../Vendas/index.jsx';
 import seta from '../../assets/down-arrow.png'
 import './home.css';
+import Alterar from '../../components/alterar/index.jsx';
 
 function Home() {
   // Usando o useState com um índice ou string para definir a página ativa
@@ -12,7 +13,7 @@ function Home() {
   const [typePage, setTypePage] = useState('');
   const [isSubCategoryVisibleClientes, setIsSubCategoryVisibleClientes] = useState(false)
   const [IsSubCategoryVisibleVendas, setIsSubCategoryVisibleVendas] = useState(false)
-
+  const [typePageAlterar, setTypePageAlterar] = useState('')
   // Função para alterar a página
   const changePage = (page) => {
     setCurrentPage(page);
@@ -35,7 +36,7 @@ function Home() {
                 <ul className='sub-category-page'>
                 <li onClick={() => changePage('clientes')}>Listar Clientes</li>
                 <li onClick={() => {setTypePage('cliente');changePage('adicionar');}}>Novo Cliente</li>
-                <li>Alterar Cliente</li>
+                <li onClick={()=>{setTypePageAlterar('cliente'); setCurrentPage('alterar')}} >Alterar Cliente</li>
                 <li>Remover Cliente</li>
               </ul>
               ): null}
@@ -49,7 +50,7 @@ function Home() {
                 <ul className='sub-category-page'>
                 <li onClick={() => changePage('vendas')}>Listar Vendas</li>
                 <li onClick={() => {setTypePage('venda');changePage('adicionar');}}>Adicionar Vendas</li>
-                <li>Alterar Vendas</li>
+                <li onClick={()=>{setTypePageAlterar('vendas'); setCurrentPage('alterar')}}>Alterar Vendas</li>
                 <li>Remove Vendas</li>
               </ul>
               ): null}
@@ -58,7 +59,7 @@ function Home() {
           </div>
         </aside>
       </section>
-      { currentPage === 'clientes' ? <ClientePage /> : currentPage === 'vendas' ? <Venda /> : currentPage === 'adicionar'? <Adicionar type={typePage}/> : null}
+      { currentPage === 'clientes' ? <ClientePage /> : currentPage === 'vendas' ? <Venda /> : currentPage === 'adicionar'? <Adicionar type={typePage}/> : currentPage === 'alterar' ? <Alterar type={typePageAlterar} /> : null}
     </div>
   );
 }
