@@ -18,7 +18,7 @@
     padding: 10px;
 }
 
-.container-adicionar-cliente input[type="text"], .container-venda-adicionar input[type="text"],button{
+.container-adicionar-cliente input[type="text"], .container-venda-adicionar input[type="text"], .container-adicionar-cliente button{
     min-width: 50%;
     text-align: center;
     width: 550px;
@@ -32,14 +32,14 @@
     outline: none;
 }
 
-button{
+.container-adicionar-cliente button{
     padding: 10px;
     background-color: rgba(110, 253, 153, 0.863);
     margin-top: 225px;
     border: 0.5px solid #9f8f8f;
 }
 
-button:hover{
+.container-adicionar-cliente button:hover{
     background-color: rgba(55, 246, 113, 0.863);
 }
 

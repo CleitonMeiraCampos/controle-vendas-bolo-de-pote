@@ -1,0 +1,35 @@
+.container-alterar-cliente{
+    width: 750px;
+    padding: 10px; 
+    margin: 0 auto;
+    padding-top: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-alterar-cliente h3{
+    padding: 30px 20px;
+}
+.container-alterar-cliente select{
+    padding: 10px 30px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.container-alterar-cliente button{
+    background-color: #ffffff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    cursor: pointer;
+    margin-top: 100px;
+    width: 220px;
+}
+
+.container-alterar-cliente button:hover{
+    background-color: rgb(89, 89, 89);
+    color: #ffffff;
+}   

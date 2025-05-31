@@ -1,3 +1,4 @@
+import './alterar.css'
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -17,14 +18,15 @@ function Alterar(props ){
 
   if(type == 'cliente'){
     return (
-      <div>
+      <div className='container-alterar-cliente'>
         <h3 style={{textAlign: 'center'}}>Selecione o cliente que deseja alterar</h3>
-        <label htmlFor="cliente">Cliente</label>
         <select id="cliente">
-        {clientes.map(cliente => (
+          <option selected disabled >Selecione um Cliente</option>
+          {clientes.map(cliente => (
             <option value={cliente.id} key={cliente.id}>{cliente.name}</option>
           ))}
         </select>
+          <button>Editar cliente</button>
       </div>
     )
   }
